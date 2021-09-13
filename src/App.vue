@@ -11,8 +11,11 @@
 </template>
 
 <script>
+import { useStore } from 'vuex'
 export default {
   setup () {
+    const store = useStore()
+    store.commit('shuffle')
     return {
       title: '三扇門遊戲'
     }
