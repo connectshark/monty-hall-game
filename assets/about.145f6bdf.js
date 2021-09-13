@@ -1,1 +1,0 @@
-import{r as a,c as s,b as r,w as n,F as o,a as t,o as e,d as l}from"./vendor.294cae04.js";const u={},c=t("h2",null,"無此頁",-1),d=l("回首頁");u.render=function(t,l){const u=a("router-link");return e(),s(o,null,[c,r(u,{to:"/"},{default:n((()=>[d])),_:1})],64)};export{u as default};
