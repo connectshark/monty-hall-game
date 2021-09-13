@@ -1,5 +1,5 @@
 <template>
-  <div class="door" @click="updateSelect">
+  <div class="door" @click="updateSelect" :class="{ open: isOpen }">
     <div class="front bg-yellow-600">
       <span class=" font-mono text-yellow-600 w-10 h-10 rounded-full bg-white absolute top-0 bottom-0 my-auto leading-10">{{index}}</span>
       <span v-if="index === select" class=" absolute top-2 left-2 text-blue-600 text-xl"><i class='bx bx-check-circle'></i></span>
@@ -30,10 +30,21 @@ export default {
     }
 
     const store = useStore()
-    const award = computed(() => store.getters.whatIAm(props.index - 1))
+    const ownAward = computed(() => store.getters.whatIAm(props.index - 1))
+    const userAward = computed(() => store.getters.whatIAm(props.select - 1))
+
+    const isOpen = computed(() => {
+      if (props.checked) {
+        if (userAward.value === 'goat') {
+          return ownAward.value === 'empty'
+        } else {
+          return ownAward.value === 'goat'
+        }
+      }
+    })
     return {
       updateSelect,
-      award
+      isOpen
     }
   }
 }
