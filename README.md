@@ -1,4 +1,4 @@
-# vite-tailwind-template
+# monty-hall-game
 
 快速開發模板架構
 

@@ -1,5 +1,12 @@
 <template>
-  <h1 class="text-4xl text-gray-800 font-sans">{{title}}</h1>
+  <nav class="text-white bg-gray-800">
+    <h1 class=" text-3xl font-sans py-3">{{title}}</h1>
+    <ul>
+      <li>
+        <router-link to="/about" class=" hover:underline">作者</router-link>
+      </li>
+    </ul>
+  </nav>
   <router-view></router-view>
 </template>
 
@@ -7,7 +14,7 @@
 export default {
   setup () {
     return {
-      title: 'Hello'
+      title: '三扇門遊戲'
     }
   }
 }

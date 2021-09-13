@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-gray-800 text-2xl font-sans">第一頁由此開始</h2>
+  <router-link to="/game" class="bg-blue-600 text-white p-4 block w-48 rounded-lg mx-auto text-xl">開始遊戲</router-link>
 </template>
 
 <script>
@@ -11,6 +11,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-</style>
