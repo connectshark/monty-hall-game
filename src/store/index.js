@@ -8,6 +8,7 @@ const store = createStore({
   mutations: {
     shuffle: (state) => {
       state.award.sort(() => Math.random() - 0.5)
+      state.checked = null
     },
     checked: (state, payload) => {
       state.checked = payload

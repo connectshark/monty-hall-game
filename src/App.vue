@@ -1,7 +1,9 @@
 <template>
   <nav class="text-white bg-gray-800">
-    <h1 class=" text-3xl font-sans py-3">{{title}}</h1>
-    <ul>
+    <h1 class=" text-3xl font-sans py-3">
+      <router-link to="/">{{title}}</router-link>
+    </h1>
+    <ul class=" py-3">
       <li>
         <router-link to="/about" class=" hover:underline">作者</router-link>
       </li>
@@ -11,11 +13,8 @@
 </template>
 
 <script>
-import { useStore } from 'vuex'
 export default {
   setup () {
-    const store = useStore()
-    store.commit('shuffle')
     return {
       title: '三扇門遊戲'
     }

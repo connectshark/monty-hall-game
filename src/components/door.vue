@@ -1,11 +1,11 @@
 <template>
   <div
-    class="door"
+    class="door w-24 h-48"
     @click="updateSelect"
     :class="[{ open: checked || draw }, showImg]"
   >
     <div class="front bg-yellow-600">
-      <span class=" font-mono text-yellow-600 w-10 h-10 rounded-full bg-white absolute top-0 bottom-0 my-auto leading-10">{{index}}</span>
+      <span class=" font-mono text-yellow-600 w-10 h-10 rounded-full bg-white absolute top-0 bottom-0 my-auto leading-10 font-bold">{{index}}</span>
       <span v-if="index === select" class=" absolute top-2 left-2 text-blue-600 text-xl"><i class='bx bx-check-circle'></i></span>
       <span class=" bg-black w-2 h-2 absolute top-0 bottom-0 my-auto left-2 rounded-full"></span>
     </div>
@@ -58,8 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 .door{
-  width: 100px;
-  height: 200px;
   background-color: #ccc;
   position: relative;
   perspective: 500px;
