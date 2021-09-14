@@ -10,7 +10,7 @@
 </div>
 <div class="py-5 md:inline-block block mx-2.5">
   <div v-if="!decide" @click="userChecked" class="btn bg-blue-700">決定好囉!</div>
-  <div v-else @click="result" class="btn bg-yellow-700">公布解答</div>
+  <div v-else @click="result" class="btn bg-yellow-700">給我車車!</div>
 </div>
 <div class="py-5" v-if="tip">
   <p class=" text-red-400 text-3xl">{{tip}}</p>
@@ -48,7 +48,7 @@ export default {
       } else if (reward === 'goat') {
         tip.value = '騎山羊'
       } else {
-        tip.value = '沒東西'
+        tip.value = '騎山羊'
       }
     }
     return {
