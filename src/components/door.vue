@@ -98,5 +98,6 @@ export default {
   background-image: url('../assets/img/car.png');
 }
 .empty{
+  background-image: url('../assets/img/goat.png');
 }
 </style>
