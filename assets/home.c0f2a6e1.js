@@ -1,1 +1,0 @@
-import{r as t,i as e,w as o,o as r,d as s}from"./vendor.d1dd5c52.js";const a={setup:()=>({})},d=s("開始遊戲");a.render=function(s,a,n,u,l,c){const i=t("router-link");return r(),e(i,{to:"/game",class:"bg-blue-600 text-white p-4 block w-48 rounded-lg mx-auto text-xl"},{default:o((()=>[d])),_:1})};export{a as default};
