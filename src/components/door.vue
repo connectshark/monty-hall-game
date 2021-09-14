@@ -1,5 +1,9 @@
 <template>
-  <div class="door" @click="updateSelect" :class="{ open: isOpen }">
+  <div
+    class="door"
+    @click="updateSelect"
+    :class="[{ open: checked || draw }, showImg]"
+  >
     <div class="front bg-yellow-600">
       <span class=" font-mono text-yellow-600 w-10 h-10 rounded-full bg-white absolute top-0 bottom-0 my-auto leading-10">{{index}}</span>
       <span v-if="index === select" class=" absolute top-2 left-2 text-blue-600 text-xl"><i class='bx bx-check-circle'></i></span>
@@ -14,37 +18,39 @@ import { useStore } from 'vuex'
 export default {
   props: {
     select: {
-      type: [null, Number]
+      type: Number
     },
     index: {
       type: Number
     },
-    checked: {
+    draw: {
       type: Boolean
     }
   },
   emits: ['update:select'],
   setup (props, { emit }) {
+    const store = useStore()
+    const checked = computed(() => store.getters.isOpen(props.index))
+
     const updateSelect = () => {
-      emit('update:select', props.index)
+      if (!checked.value && !props.draw) {
+        emit('update:select', props.index)
+      }
     }
 
-    const store = useStore()
-    const ownAward = computed(() => store.getters.whatIAm(props.index - 1))
-    const userAward = computed(() => store.getters.whatIAm(props.select - 1))
+    const img = computed(() => store.state.award)
 
-    const isOpen = computed(() => {
-      if (props.checked) {
-        if (userAward.value === 'goat') {
-          return ownAward.value === 'empty'
-        } else {
-          return ownAward.value === 'goat'
-        }
+    const showImg = computed(() => {
+      if (props.draw || checked.value) {
+        return img.value[props.index - 1]
+      } else {
+        return ''
       }
     })
     return {
       updateSelect,
-      isOpen
+      checked,
+      showImg
     }
   }
 }
@@ -57,6 +63,9 @@ export default {
   background-color: #ccc;
   position: relative;
   perspective: 500px;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
   &:hover{
     .front{
       transform: rotateY(20deg);
@@ -76,7 +85,20 @@ export default {
 }
 .open{
   .front{
-    transform: rotateY(90deg);
+    transform: rotateY(80deg);
   }
+}
+.open-all{
+  .front{
+    transform: rotateY(80deg);
+  }
+}
+.goat{
+  background-image: url('../assets/img/goat.png');
+}
+.car{
+  background-image: url('../assets/img/car.png');
+}
+.empty{
 }
 </style>
